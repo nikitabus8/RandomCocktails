@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Random Cocktails</title>
+</head>
+<body>
+    <div class="all">
+        <img src="<%= content.drinks[0].strDrinkThumb %>">
+
+        <div class="info">
+            <h1><%= content.drinks[0].strDrink %></h1>
+            <div class="list">
+                <% content.drinks.forEach(function(drink) { %>
+                    <% for (let i = 1; i <= 15; i++) { %>
+                    <% const ingredientKey = 'strIngredient' + i; %>
+                    <% const measureKey = 'strMeasure' + i; %>
+                    <% if (drink[ingredientKey]) { %>
+                        <li><%= drink[ingredientKey] %> (<%= drink[measureKey] %> )</li>
+                    <% } %>
+                    <% } %>
+                <% }); %>
+            </div>
+            <p><%= content.drinks[0].strInstructions %></p>
+        </div>
+    </div>
+</body>
+</html>
